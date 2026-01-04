@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - 四川沁科科技有限公司</title>
+    <meta name="description" content="了解四川沁科科技有限公司的企业背景、发展历程和核心价值理念。我们成立于2020年，专注消防科技领域创新服务，致力于产教融合、赋能未来。">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Quattrocento+Sans:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <style>
+        :root {
+            --primary-color: #1A4B7A;
+            --secondary-color: #4A7BA7;
+            --accent-color: #3A8DCD;
+            --bg-color: #F8F9FA;
+            --text-dark: #212529;
+            --text-light: #FFFFFF;
+        }
+        
+        * {
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+        
+        .font-heading {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-weight: 700;
+        }
+        
+        .font-en {
+            font-family: 'Quattrocento Sans', sans-serif;
+        }
+        
+        /* 导航栏样式 */
+        .navbar {
+            background: rgba(26, 75, 122, 0.95);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background: rgba(26, 75, 122, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #3A8DCD !important;
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #3A8DCD;
+            border-radius: 2px;
+        }
+        
+        /* 页面标题区样式 */
+        .page-header {
+            background: linear-gradient(135deg, rgba(26, 75, 122, 0.9), rgba(58, 141, 205, 0.8)), url('resources/tech-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            padding-top: 100px;
+            padding-bottom: 80px;
+        }
+        
+        /* 滚动动画 */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 页脚样式 */
+        .footer {
+            background: linear-gradient(135deg, var(--primary-color), #0f2a44);
+        }
+        
+        /* 时间线样式 */
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            background: var(--accent-color);
+            border-radius: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 0.375rem;
+            top: 1.5rem;
+            width: 0.25rem;
+            height: calc(100% - 1rem);
+            background: #e5e7eb;
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="navbar fixed top-0 left-0 right-0 z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="text-white">
+                    <h1 class="text-xl font-bold">四川沁科科技</h1>
+                    <p class="text-sm text-gray-200 font-en">Sichuan Qinke Technology</p>
+                </div>
+            </div>
+            
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="index.html" class="nav-link text-white hover:text-blue-300 px-3 py-2 text-sm font-medium">首页</a>
+                <a href="about.html" class="nav-link text-white hover:text-blue-300 px-3 py-2 text-sm font-medium active">关于我们</a>
+                <a href="services.html" class="nav-link text-white hover:text-blue-300 px-3 py-2 text-sm font-medium">核心业务</a>
+                <a href="index.html#cooperation" class="nav-link text-white hover:text-blue-300 px-3 py-2 text-sm font-medium">校企合作特色</a>
+                <a href="index.html#achievements" class="nav-link text-white hover:text-blue-300 px-3 py-2 text-sm font-medium">发展成果</a>
+                <a href="index.html#vision" class="nav-link text-white hover:text-blue-300 px-3 py-2 text-sm font-medium">未来愿景</a>
+                <a href="contact.html" class="nav-link text-white hover:text-blue-300 px-3 py-2 text-sm font-medium">联系我们</a>
+            </div>
+            
+            <div class="lg:hidden">
+                <button id="mobile-menu-btn" class="text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="lg:hidden hidden mt-4 pb-4">
+            <div class="flex flex-col space-y-2">
+                <a href="index.html" class="text-white hover:text-blue-300 px-3 py-2 text-sm font-medium">首页</a>
+                <a href="about.html" class="text-white hover:text-blue-300 px-3 py-2 text-sm font-medium">关于我们</a>
+                <a href="services.html" class="text-white hover:text-blue-300 px-3 py-2 text-sm font-medium">核心业务</a>
+                <a href="index.html#cooperation" class="text-white hover:text-blue-300 px-3 py-2 text-sm font-medium">校企合作特色</a>
+                <a href="index.html#achievements" class="text-white hover:text-blue-300 px-3 py-2 text-sm font-medium">发展成果</a>
+                <a href="index.html#vision" class="text-white hover:text-blue-300 px-3 py-2 text-sm font-medium">未来愿景</a>
+                <a href="contact.html" class="text-white hover:text-blue-300 px-3 py-2 text-sm font-medium">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题区 -->
+    <section class="page-header">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center">
+                <h1 class="text-4xl lg:text-5xl font-heading text-white mb-4">关于我们</h1>
+                <p class="text-xl text-blue-100 max-w-2xl mx-auto">
+                    了解四川沁科科技有限公司的企业背景、发展历程和核心价值理念
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 企业简介 -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <h2 class="text-3xl font-heading text-gray-900 mb-6">企业简介</h2>
+                    <div class="space-y-6 text-lg text-gray-700 leading-relaxed">
+                        <p>
+                            <strong>四川沁科科技有限公司</strong>成立于2020年，总部位于四川省成都市武侯区双凤五路288号12栋3层附23号，是一家专注于消防科技领域创新服务的高新技术企业。
+                        </p>
+                        <p>
+                            公司立足消防产业，聚焦职业教育领域，经过四年快速发展，已形成"教育+产业"双轮驱动的成熟模式。我们与川内多所高职专科院校建立深度合作关系，致力于通过校企合作推动消防行业人才培养与产业升级。
+                        </p>
+                        <p>
+                            作为专业的消防科技服务企业，我们不仅提供消防安全评估、技术咨询及行业解决方案，更重要的是通过产教融合模式，为消防行业培养输送大量持证技能人才，有效缓解行业人才短缺问题，为区域经济发展和社会安全建设贡献力量。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <img src="resources/collaboration.jpg" alt="企业办公环境" class="rounded-xl shadow-lg w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心理念 -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-heading text-gray-900 mb-4">核心理念</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-12 text-center text-white fade-in">
+                    <h3 class="text-4xl font-heading mb-8">产教融合 · 赋能未来</h3>
+                    <p class="text-xl leading-relaxed mb-8">
+                        这是我们始终坚持的核心理念。通过深度融合产业资源与教育力量，我们不仅为消防行业培养专业人才，更为社会安全建设提供坚实保障，真正实现"赋能未来"的企业使命。
+                    </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 mt-12">
+                        <div class="text-left">
+                            <h4 class="text-2xl font-semibold mb-4">产教融合</h4>
+                            <ul class="space-y-2 text-blue-100">
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-white rounded-full mr-3"></span>
+                                    产业资源与教育资源深度整合
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-white rounded-full mr-3"></span>
+                                    企业需求与人才培养精准对接
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-white rounded-full mr-3"></span>
+                                    理论教学与实践操作有机结合
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="text-left">
+                            <h4 class="text-2xl font-semibold mb-4">赋能未来</h4>
+                            <ul class="space-y-2 text-blue-100">
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-white rounded-full mr-3"></span>
+                                    为学生职业发展提供坚实基础
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-white rounded-full mr-3"></span>
+                                    为企业发展输送专业人才
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-white rounded-full mr-3"></span>
+                                    为社会安全建设贡献力量
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 企业使命 -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-heading text-gray-900 mb-4">企业使命</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+            </div>
+            
+            <div class="max-w-5xl mx-auto">
+                <div class="bg-white rounded-2xl p-12 border border-gray-200 shadow-lg fade-in">
+                    <div class="text-center mb-12">
+                        <h3 class="text-2xl font-heading text-gray-900 mb-6">通过校企合作推动消防行业人才培养与产业升级</h3>
+                        <p class="text-lg text-gray-600 leading-relaxed">
+                            为区域经济发展和社会安全建设贡献力量
+                        </p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-lg font-semibold text-gray-900 mb-3">人才培养</h4>
+                            <p class="text-gray-600">
+                                通过专业的教育体系和实践平台，培养符合行业需求的高素质消防技术人才
+                            </p>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-lg font-semibold text-gray-900 mb-3">产业升级</h4>
+                            <p class="text-gray-600">
+                                推动消防行业技术创新和服务升级，提升行业整体竞争力和发展水平
+                            </p>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-lg font-semibold text-gray-900 mb-3">社会贡献</h4>
+                            <p class="text-gray-600">
+                                为区域经济发展和社会安全建设提供人才保障和技术支持
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 发展里程碑 -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-heading text-gray-900 mb-4">发展里程碑</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600">回顾公司发展历程中的重要节点</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-12">
+                    <div class="timeline-item fade-in">
+                        <div class="bg-white rounded-xl p-8 shadow-lg">
+                            <div class="flex items-center mb-4">
+                                <span class="text-3xl font-bold text-blue-600 mr-4">2020</span>
+                                <h3 class="text-2xl font-heading text-gray-900">公司成立</h3>
+                            </div>
+                            <p class="text-gray-600 leading-relaxed">
+                                四川沁科科技有限公司正式成立，确立"产教融合、赋能未来"的核心理念，开始专注于消防科技领域的创新服务。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item fade-in">
+                        <div class="bg-white rounded-xl p-8 shadow-lg">
+                            <div class="flex items-center mb-4">
+                                <span class="text-3xl font-bold text-blue-600 mr-4">2021</span>
+                                <h3 class="text-2xl font-heading text-gray-900">校企合作启动</h3>
+                            </div>
+                            <p class="text-gray-600 leading-relaxed">
+                                与川内首批高职专科院校建立合作关系，启动建筑消防技术专业共建项目，开启产教融合新模式。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item fade-in">
+                        <div class="bg-white rounded-xl p-8 shadow-lg">
+                            <div class="flex items-center mb-4">
+                                <span class="text-3xl font-bold text-blue-600 mr-4">2022</span>
+                                <h3 class="text-2xl font-heading text-gray-900">培训体系完善</h3>
+                            </div>
+                            <p class="text-gray-600 leading-relaxed">
+                                建立标准化培训体系，开展消防设施操作员等国家职业资格证书培训，考证通过率位居省内前列。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item fade-in">
+                        <div class="bg-white rounded-xl p-8 shadow-lg">
+                            <div class="flex items-center mb-4">
+                                <span class="text-3xl font-bold text-blue-600 mr-4">2023</span>
+                                <h3 class="text-2xl font-heading text-gray-900">规模扩张</h3>
+                            </div>
+                            <p class="text-gray-600 leading-relaxed">
+                                合作院校达到15所，累计培养学员超过4000人次，培训学员考取证书突破3000人，成为区域内重要的消防人才培养基地。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item fade-in">
+                        <div class="bg-white rounded-xl p-8 shadow-lg border-2 border-blue-200">
+                            <div class="flex items-center mb-4">
+                                <span class="text-3xl font-bold text-blue-600 mr-4">2025</span>
+                                <h3 class="text-2xl font-heading text-gray-900">标杆平台</h3>
+                            </div>
+                            <p class="text-gray-600 leading-relaxed">
+                                持续深化校企合作，推动消防职业教育与产业需求无缝衔接，致力于打造成为西南地区消防人才培养标杆平台。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-heading text-gray-900 mb-4">联系我们</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600">欢迎与我们取得联系，了解更多企业信息</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gray-50 rounded-2xl p-8 fade-in">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-6">联系信息</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-3">
+                                    <span class="text-gray-600">联系人：</span>
+                                    <span class="font-medium text-gray-900">李先生</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <span class="text-gray-600">电话：</span>
+                                    <span class="font-medium text-gray-900">19949801434</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <span class="text-gray-600">邮箱：</span>
+                                    <span class="font-medium text-gray-900">1042897872@qq.com</span>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <span class="text-gray-600">地址：</span>
+                                    <span class="font-medium text-gray-900">四川省成都市武侯区双凤五路288号12栋3层附23号</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-center">
+                            <a href="contact.html" class="bg-blue-600 text-white px-8 py-4 rounded-lg font-medium text-lg hover:bg-blue-700 transition-colors inline-block">
+                                立即联系我们
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center">
+                <div class="mb-6">
+                    <h3 class="text-2xl font-bold text-white mb-2">四川沁科科技有限公司</h3>
+                    <p class="text-blue-200 font-en">Sichuan Qinke Technology Co., Ltd.</p>
+                </div>
+                
+                <div class="border-t border-blue-800 pt-6">
+                    <p class="text-blue-200 text-sm">
+                        © 2025 四川沁科科技有限公司 版权所有 | 专注消防科技领域创新服务
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 hidden z-40">
+        <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <script src="main.js"></script>
+</body>
+</html>

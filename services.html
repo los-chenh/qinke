@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>核心业务 - 四川沁科科技有限公司</title>
+    <meta name="description" content详细了解四川沁科科技有限公司的四大核心业务：校企合作专业共建、职业资格培训认证、实习就业服务、消防技术服务。我们提供全方位的消防科技服务与人才培养解决方案。">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Quattrocento+Sans:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <!-- Splide.js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    
+    <style>
+        :root {
+            --primary-color: #1A4B7A;
+            --secondary-color: #4A7BA7;
+            --accent-color: #3A8DCD;
+            --bg-color: #F8F9FA;
+            --text-dark: #212529;
+            --text-light: #FFFFFF;
+        }
+        
+        * {
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+        
+        .font-heading {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-weight: 700;
+        }
+        
+        .font-en {
+            font-family: 'Quattrocento Sans', sans-serif;
+        }
+        
+        /* 导航栏样式 */
+        .navbar {
+            background: rgba(26, 75, 122, 0.95);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background: rgba(26, 75, 122, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #3A8DCD !important;
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #3A8DCD;
+            border-radius: 2px;
+        }
+        
+        /* 页面标题区样式 */
+        .page-header {
+            background: linear-gradient(135deg, rgba(26, 75, 122, 0.9), rgba(58, 141, 205, 0.8)), url('resources/tech-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            padding-top: 100px;
+            padding-bottom: 80px;
+        }
+        
+        /* 滚动动画 */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 页脚样式 */
+        .footer {
+            background: linear-gradient(135deg, var(--primary-color), #0f2a44);
+        }
+        
+        /* 图片轮播样式 */
+        .splide__slide img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        
+        /* 服务卡片样式 */
+        .service-detail-card {
+            transition: all 0.3s ease;
+        }
+        
+        .service-detail-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(26, 75, 122, 0.1);
+        }
+        
+        /* 统计数据样式 */
+        .stat-box {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-box:hover {
+            transform: scale(1.05);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="navbar fixed top-0 left-0 right-0 z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="text-white">
+                    <h1 class="text-xl font-bold">四川沁科科技</h1>
+                    <p class="text-sm text-gray-200 font-en">Sichuan Qinke Technology</p>
+                </div>
+            </div>
+            
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="index.html" class="nav-link text-white hover:text-blue-300 px-3 py-2 text-sm font-medium">首页</a>
+                <a href="about.html" class="nav-link text-white hover:text-blue-300 px-3 py-2 text-sm font-medium">关于我们</a>
+                <a href="services.html" class="nav-link text-white hover:text-blue-300 px-3 py-2 text-sm font-medium active">核心业务</a>
+                <a href="index.html#cooperation" class="nav-link text-white hover:text-blue-300 px-3 py-2 text-sm font-medium">校企合作特色</a>
+                <a href="index.html#achievements" class="nav-link text-white hover:text-blue-300 px-3 py-2 text-sm font-medium">发展成果</a>
+                <a href="index.html#vision" class="nav-link text-white hover:text-blue-300 px-3 py-2 text-sm font-medium">未来愿景</a>
+                <a href="contact.html" class="nav-link text-white hover:text-blue-300 px-3 py-2 text-sm font-medium">联系我们</a>
+            </div>
+            
+            <div class="lg:hidden">
+                <button id="mobile-menu-btn" class="text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="lg:hidden hidden mt-4 pb-4">
+            <div class="flex flex-col space-y-2">
+                <a href="index.html" class="text-white hover:text-blue-300 px-3 py-2 text-sm font-medium">首页</a>
+                <a href="about.html" class="text-white hover:text-blue-300 px-3 py-2 text-sm font-medium">关于我们</a>
+                <a href="services.html" class="text-white hover:text-blue-300 px-3 py-2 text-sm font-medium">核心业务</a>
+                <a href="index.html#cooperation" class="text-white hover:text-blue-300 px-3 py-2 text-sm font-medium">校企合作特色</a>
+                <a href="index.html#achievements" class="text-white hover:text-blue-300 px-3 py-2 text-sm font-medium">发展成果</a>
+                <a href="index.html#vision" class="text-white hover:text-blue-300 px-3 py-2 text-sm font-medium">未来愿景</a>
+                <a href="contact.html" class="text-white hover:text-blue-300 px-3 py-2 text-sm font-medium">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题区 -->
+    <section class="page-header">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center">
+                <h1 class="text-4xl lg:text-5xl font-heading text-white mb-4">核心业务</h1>
+                <p class="text-xl text-blue-100 max-w-2xl mx-auto">
+                    立足消防产业，聚焦职业教育领域，提供全方位的消防科技服务与人才培养解决方案
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 校企合作专业共建 -->
+    <section id="cooperation" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-heading text-gray-900 mb-4">校企合作专业共建</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                <div class="fade-in">
+                    <img src="resources/collaboration.jpg" alt="校企合作场景" class="rounded-xl shadow-lg w-full">
+                </div>
+                
+                <div class="fade-in">
+                    <h3 class="text-2xl font-heading text-gray-900 mb-6">建筑消防技术专业共建产业学院</h3>
+                    <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                        我们与川内高职专科院校深度合作，联合开设建筑消防技术专业，共建产业学院。通过整合企业资源与院校教育优势，打造符合行业需求的专业人才培养体系。
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-blue-600 rounded-full flex-shrink-0 mt-1"></div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">联合开发课程体系</h4>
+                                <p class="text-gray-600">根据行业发展趋势和企业用人需求，联合开发符合市场需求的课程体系，确保教学内容与实际工作紧密结合。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-blue-600 rounded-full flex-shrink-0 mt-1"></div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">真实项目案例教学</h4>
+                                <p class="text-gray-600">引入真实消防项目案例进行教学，让学生在学习过程中接触实际工作场景，提高实践能力和问题解决能力。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-blue-600 rounded-full flex-shrink-0 mt-1"></div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">"双师型"教学团队</h4>
+                                <p class="text-gray-600">聘请企业资深工程师与院校专业教师组成教学团队，既有理论教学能力，又有实践经验，确保教学质量。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 实训基地展示 -->
+            <div class="bg-gray-50 rounded-2xl p-8 fade-in">
+                <h3 class="text-2xl font-heading text-gray-900 mb-8 text-center">智能化实训基地</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-xl p-6 text-center">
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-2">火灾报警联动系统</h4>
+                        <p class="text-gray-600 text-sm">模拟真实火灾场景，学习报警系统原理与操作</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 text-center">
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-2">自动喷水灭火系统</h4>
+                        <p class="text-gray-600 text-sm">实操喷淋系统安装、调试与维护技能</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 text-center">
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-2">消防控制室模拟</h4>
+                        <p class="text-gray-600 text-sm">仿真消防控制中心操作环境与应急处理</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 职业资格培训认证 -->
+    <section id="training" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-heading text-gray-900 mb-4">职业资格培训认证</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8 mb-16">
+                <div class="stat-box fade-in">
+                    <div class="stat-number">3000+</div>
+                    <p class="text-lg">累计培训合格学员</p>
+                </div>
+                
+                <div class="stat-box fade-in">
+                    <div class="stat-number">3年</div>
+                    <p class="text-lg">连续位居省内前列</p>
+                </div>
+                
+                <div class="stat-box fade-in">
+                    <div class="stat-number">95%+</div>
+                    <p class="text-lg">学员满意度</p>
+                </div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <h3 class="text-2xl font-heading text-gray-900 mb-6">标准化培训体系</h3>
+                    <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                        依托丰富的行业资源和标准化的培训体系，我们为在校学生及社会人员提供消防设施操作员、消防工程师等国家职业资格证书的专业培训服务。
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="service-detail-card bg-white rounded-xl p-6">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-3">理论+实操双模块培训</h4>
+                            <p class="text-gray-600 mb-4">
+                                采用理论教学与实操训练相结合的双模块培训模式，确保学员既掌握扎实的理论知识，又具备熟练的操作技能。
+                            </p>
+                            <ul class="text-sm text-gray-600 space-y-2">
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                                    消防设施操作原理与规范
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                                    实际操作技能训练
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                                    应急处理能力培养
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="service-detail-card bg-white rounded-xl p-6">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-3">培训项目</h4>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="text-center p-4 bg-blue-50 rounded-lg">
+                                    <h5 class="font-semibold text-blue-900">消防设施操作员</h5>
+                                    <p class="text-sm text-blue-700 mt-1">初级/中级/高级</p>
+                                </div>
+                                <div class="text-center p-4 bg-blue-50 rounded-lg">
+                                    <h5 class="font-semibold text-blue-900">消防工程师</h5>
+                                    <p class="text-sm text-blue-700 mt-1">一级/二级</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <img src="resources/tech-bg.jpg" alt="培训场景" class="rounded-xl shadow-lg w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 实习就业服务 -->
+    <section id="employment" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-heading text-gray-900 mb-4">实习就业服务</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                <div class="fade-in">
+                    <h3 class="text-2xl font-heading text-gray-900 mb-6">实习就业一体化服务</h3>
+                    <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                        为消防专业学生及社会人员提供对口实习岗位、就业推荐及职业规划指导，搭建从学习到就业的全链条服务体系。
+                    </p>
+                    
+                    <div class="bg-blue-50 rounded-xl p-6 mb-6">
+                        <div class="text-center mb-4">
+                            <div class="text-4xl font-bold text-blue-600">85%+</div>
+                            <p class="text-gray-600">实习转就业率</p>
+                        </div>
+                        <p class="text-sm text-gray-600 text-center">
+                            每年定向安排学生进入合作企业实习，实习转就业率达85%以上
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-blue-600 rounded-full flex-shrink-0 mt-1"></div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">对口实习岗位</h4>
+                                <p class="text-gray-600">提供消防工程公司、物业集团、应急管理部门等对口实习岗位</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-blue-600 rounded-full flex-shrink-0 mt-1"></div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">就业推荐服务</h4>
+                                <p class="text-gray-600">与省内多家消防企业建立人才输送渠道，提供就业推荐服务</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-blue-600 rounded-full flex-shrink-0 mt-1"></div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">职业规划指导</h4>
+                                <p class="text-gray-600">提供专业的职业规划指导，帮助学生明确职业发展方向</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <img src="resources/collaboration.jpg" alt="实习就业服务" class="rounded-xl shadow-lg w-full">
+                </div>
+            </div>
+            
+            <!-- 实习成果展示 -->
+            <div class="bg-gray-50 rounded-2xl p-8 fade-in">
+                <h3 class="text-2xl font-heading text-gray-900 mb-8 text-center">实习成果展示</h3>
+                
+                <!-- 图片轮播 -->
+                <div class="splide mb-8" id="internship-gallery">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            <li class="splide__slide">
+                                <img src="resources/ppt/media/image3.jpeg" alt="学生实习场景1">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="resources/ppt/media/image4.jpeg" alt="学生实习场景2">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="resources/ppt/media/image5.jpeg" alt="学生实习场景3">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="resources/ppt/media/image6.jpeg" alt="学生实习场景4">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="resources/ppt/media/image7.jpeg" alt="学生实习场景5">
+                            </li>
+                            <li class="splide__slide">
+                                <img src="resources/ppt/media/image8.jpeg" alt="学生实习场景6">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <p class="text-lg text-gray-700 mb-4">
+                        学生在实习过程中深入消防各个岗位，从烟雾报警器测试到喷淋系统排查，从消防控制中心值守到应急响应处理，全面提升专业技能和职业素养。
+                    </p>
+                    <div class="grid md:grid-cols-3 gap-6 mt-8">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-lg font-semibold text-gray-900 mb-2">合作企业</h4>
+                            <p class="text-gray-600">与多家消防工程公司、物业集团建立长期合作关系</p>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-lg font-semibold text-gray-900 mb-2">人才数据库</h4>
+                            <p class="text-gray-600">搭建校企人才数据库，实现精准匹配</p>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-lg font-semibold text-gray-900 mb-2">就业保障</h4>
+                            <p class="text-gray-600">提供全程就业指导，确保高就业率</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 消防技术服务 -->
+    <section id="technical" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-heading text-gray-900 mb-4">消防技术服务</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <h3 class="text-2xl font-heading text-gray-900 mb-6">专业技术服务</h3>
+                    <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                        依托专业的技术团队和丰富的行业经验，为企事业单位提供全方位的消防安全保障服务，包括消防安全评估、技术咨询及行业解决方案。
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="service-detail-card bg-white rounded-xl p-6">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-3">消防安全评估</h4>
+                            <p class="text-gray-600 mb-4">
+                                为建筑物、场所提供专业的消防安全评估服务，识别火灾隐患，提出整改建议，确保消防安全达标。
+                            </p>
+                            <ul class="text-sm text-gray-600 space-y-2">
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                                    建筑消防设施评估
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                                    消防安全管理制度评估
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                                    火灾风险评估与分级
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="service-detail-card bg-white rounded-xl p-6">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-3">技术咨询</h4>
+                            <p class="text-gray-600 mb-4">
+                                提供专业的消防技术咨询服务，解答消防相关技术问题，协助企业制定消防安全管理方案。
+                            </p>
+                            <ul class="text-sm text-gray-600 space-y-2">
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                                    消防法规政策咨询
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                                    消防设计方案优化
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                                    消防安全培训咨询
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="service-detail-card bg-white rounded-xl p-6">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-3">行业解决方案</h4>
+                            <p class="text-gray-600">
+                                针对不同行业特点，提供定制化的消防安全解决方案，帮助企业建立完善的消防安全管理体系。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <img src="resources/tech-bg.jpg" alt="消防技术服务" class="rounded-xl shadow-lg w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-3xl font-heading text-gray-900 mb-4">联系我们</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600">了解更多业务详情，获取专业服务支持</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gray-50 rounded-2xl p-8 fade-in">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-6">联系信息</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-3">
+                                    <span class="text-gray-600">联系人：</span>
+                                    <span class="font-medium text-gray-900">李先生</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <span class="text-gray-600">电话：</span>
+                                    <span class="font-medium text-gray-900">19949801434</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <span class="text-gray-600">邮箱：</span>
+                                    <span class="font-medium text-gray-900">1042897872@qq.com</span>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <span class="text-gray-600">地址：</span>
+                                    <span class="font-medium text-gray-900">四川省成都市武侯区双凤五路288号12栋3层附23号</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-center">
+                            <a href="contact.html" class="bg-blue-600 text-white px-8 py-4 rounded-lg font-medium text-lg hover:bg-blue-700 transition-colors inline-block">
+                                立即联系我们
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center">
+                <div class="mb-6">
+                    <h3 class="text-2xl font-bold text-white mb-2">四川沁科科技有限公司</h3>
+                    <p class="text-blue-200 font-en">Sichuan Qinke Technology Co., Ltd.</p>
+                </div>
+                
+                <div class="border-t border-blue-800 pt-6">
+                    <p class="text-blue-200 text-sm">
+                        © 2025 四川沁科科技有限公司 版权所有 | 专注消防科技领域创新服务
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 hidden z-40">
+        <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <script src="main.js"></script>
+</body>
+</html>
